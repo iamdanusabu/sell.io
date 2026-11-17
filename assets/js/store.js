@@ -1,7 +1,7 @@
 /* Parakh prototype — state, persistence and every business action.
    State lives in localStorage so the whole flow works without a backend. */
 (function () {
-  const KEY = 'parakh.proto.v4';
+  const KEY = 'parakh.proto.v5';
   const H = 36e5, D = 24 * H;
 
   const rnd = (n) => Math.floor(Math.random() * n);
@@ -46,7 +46,7 @@
         condition: 'excellent', ageMonths: 58, warranty: 'Out of warranty', city: 'Bengaluru', mode: 'hub',
         serial: '0324819062255', createdAt: now - 6 * D,
         specs: [['Memory', '11 GB GDDR6'], ['Outputs', '3× DisplayPort 1.4, HDMI 2.0b, USB-C'], ['Power', '2× 8-pin, 650 W PSU recommended'], ['Length', '267 mm, dual slot']],
-        description: 'Reference card bought from the NVIDIA store in 2019. Used in a gaming build only, never mined on. Thermal paste and pads replaced by our bench at intake.',
+        description: 'Bought on the NVIDIA store in Sept 2019. Gaming only, never mined on. Got it repasted with new thermal pads when I dropped it at the Parakh hub. Original box and bill.',
         report: seedReport('gpu', { id: 'VR-20417', at: now - 5 * D, grade: 'excellent', seal: 'S-7KQ2MD', serial: '0324819062255',
           notes: 'Peak 78°C after 30 minutes of 3DMark Time Spy stress, 99.4% frame stability. Fans spin true, no bearing noise. Light hairline marks on the backplate, visible only under direct light.' }) }),
       L({ id: 'l_ryzen', sellerId: 'u_rhea', category: 'cpu', img: 'assets/img/ryzen.jpg',
@@ -54,31 +54,31 @@
         condition: 'excellent', ageMonths: 50, warranty: 'Out of warranty', city: 'Bengaluru',
         serial: '9KQ4471T20338', createdAt: now - 2 * D,
         specs: [['Cores / threads', '8 / 16'], ['Socket', 'AM4'], ['Board', 'ASUS TUF Gaming B550M-Plus, micro-ATX'], ['Cooler', 'Wraith Prism included']],
-        description: 'Moved to AM5, so this pair is free. Ran at stock settings its whole life. The chip stays seated in the socket for shipping. Original invoice from PrimeABGB included.' }),
+        description: 'Upgraded to AM5, so selling the old CPU and board together. Always ran at stock, never overclocked. CPU stays in the socket for shipping. Wraith Prism cooler included. Bill from PrimeABGB, Aug 2022.' }),
       L({ id: 'l_intel', sellerId: 'u_karthik', category: 'cpu', img: 'assets/img/intel.jpg',
         title: 'Intel Core i9-9900K with MSI Z390 Gaming Plus', brand: 'Intel / MSI', price: 18900, newPrice: 52000,
         condition: 'good', ageMonths: 61, warranty: 'Out of warranty', city: 'Bengaluru', box: false,
         serial: 'X938C442-601', createdAt: now - 8 * D,
         specs: [['Cores / threads', '8 / 16'], ['Board', 'MSI MPG Z390 Gaming Plus, ATX'], ['Memory support', 'DDR4, 4 slots'], ['Includes', 'CPU, board, I/O shield']],
-        description: 'Sold as a pair, the chip stays seated in the socket for shipping. Board has one cosmetic scuff on the VRM heatsink. BIOS updated to the final release.' }),
+        description: 'Selling as a combo, the CPU is already seated in the board. One scuff on the VRM heatsink, otherwise clean. BIOS updated to the last version. No box for the board.' }),
       L({ id: 'l_keychron', sellerId: 'u_rhea', category: 'keyboard', img: 'assets/img/keychron.jpg',
         title: 'Keychron Q1 Pro, carbon black, Gateron Jupiter Red', brand: 'Keychron', price: 11800, newPrice: 19500,
         condition: 'likenew', ageMonths: 7, warranty: '5 months manufacturer warranty', city: 'Bengaluru',
         serial: 'Q1P-M1-2403-11872', createdAt: now - 1 * D,
         specs: [['Layout', '75%, ANSI, knob'], ['Case', 'CNC aluminium, gasket mount'], ['Connectivity', 'Bluetooth 5.1, USB-C'], ['Keycaps', 'KSA double-shot PBT']],
-        description: 'Typed on for a few months before I switched to a split board. Comes with the full kit: both cables, keycap puller, spare gaskets and the Windows keycaps.' }),
+        description: 'Used it for about 4 months, then moved to a split keyboard. Everything from the box is there: both cables, keycap puller, spare gaskets and the Mac and Windows keycaps.' }),
       L({ id: 'l_varmilo', sellerId: 'u_rhea', category: 'keyboard', img: 'assets/img/varmilo.jpg',
         title: 'Varmilo VA87M, Cherry MX Red', brand: 'Varmilo', price: 8900, newPrice: 13500,
         condition: 'good', ageMonths: 30, warranty: 'Out of warranty', city: 'Bengaluru', status: 'reserved',
         serial: 'VA87M-190822-0457', createdAt: now - 9 * D,
         specs: [['Layout', 'Tenkeyless, ANSI'], ['Switches', 'Cherry MX Red'], ['Keycaps', 'Dye-sub PBT'], ['Connectivity', 'USB-C, detachable']],
-        description: 'Daily driver for two and a half years. Slight shine on the spacebar, everything else is clean.' }),
+        description: 'My daily keyboard for around two and a half years. Spacebar has some shine, the rest of the keycaps are fine. No chatter on any key.' }),
       L({ id: 'l_xm5', sellerId: 'u_sana', category: 'audio', img: 'assets/img/headphones.jpg',
         title: 'Sony WH-1000XM5, black', brand: 'Sony', price: 16900, newPrice: 29990,
         condition: 'likenew', ageMonths: 9, warranty: '3 months manufacturer warranty', city: 'Mumbai', mode: 'hub',
         serial: 'S01-4471902-B', createdAt: now - 4 * D,
         specs: [['Type', 'Over-ear, wireless, noise cancelling'], ['Battery', 'Up to 30 hours'], ['Codecs', 'LDAC, AAC, SBC'], ['Includes', 'Case, USB-C cable, 3.5 mm cable']],
-        description: 'Bought for travel, used on perhaps a dozen flights. Earpads are original and unmarked.',
+        description: 'Bought for travel last year, used on maybe 10 to 12 flights. Earpads are original, no cracks or peeling. Comes with the case and both cables.',
         report: seedReport('audio', { id: 'VR-20422', at: now - 3 * D, grade: 'likenew', seal: 'S-3HV8TA', serial: 'S01-4471902-B',
           notes: 'Channel balance within 0.5 dB. Battery reported 97% health in the Sony app. Serial confirmed genuine with Sony India; warranty runs a further three months.' }) }),
       L({ id: 'l_gpx', sellerId: 'u_dev', category: 'mouse', img: 'assets/img/mouse-black.jpg',
@@ -86,49 +86,49 @@
         condition: 'excellent', ageMonths: 11, warranty: '13 months manufacturer warranty', city: 'Pune',
         serial: '2331LZ05K8X9', createdAt: now - 5 * D,
         specs: [['Weight', '60 g'], ['Sensor', 'HERO 2, 32,000 DPI'], ['Polling', 'Up to 2,000 Hz'], ['Battery', 'Up to 95 hours']],
-        description: 'Second mouse that barely left the drawer. Stock feet with plenty of life, grip tape never applied.' }),
+        description: 'Was my backup mouse, barely used. Stock feet, never put grip tape on it. Box, receiver and cable included.' }),
       L({ id: 'l_a7', sellerId: 'u_sana', category: 'camera', img: 'assets/img/camera.jpg',
         title: 'Sony A7 III body with Canon EF 50mm f/1.4 and adapter', brand: 'Sony', price: 92000, newPrice: 165000,
         condition: 'good', ageMonths: 44, warranty: 'Out of warranty', city: 'Mumbai',
         serial: '4718830', createdAt: now - 7 * D,
         specs: [['Sensor', '24.2 MP full-frame'], ['Shutter count', 'Approx. 38,000 (verified on the bench)'], ['Includes', 'Body, 50mm f/1.4, Sigma MC-11, 2 batteries'], ['Mount', 'Sony E']],
-        description: 'Wedding second-body for three seasons. Some brassing at the strap lugs. Sensor professionally cleaned in August.' }),
+        description: 'Used as my second body for weddings for three seasons. Some paint wear near the strap lugs. Sensor professionally cleaned in August. Comes with 2 batteries, the Sigma MC-11 and the Canon 50mm f/1.4.' }),
       L({ id: 'l_xps', sellerId: 'u_dev', category: 'laptop', img: 'assets/img/xps.jpg',
         title: 'Dell XPS 13 9310, i7, 16 GB, 512 GB, frost white', brand: 'Dell', price: 58000, newPrice: 139990,
         condition: 'excellent', ageMonths: 34, warranty: 'Out of warranty', city: 'Pune', status: 'reserved',
         serial: 'DXPS-7QK29F3', createdAt: now - 10 * D,
         specs: [['Processor', 'Intel Core i7-1185G7'], ['Display', '13.4" UHD+ touch'], ['Memory / storage', '16 GB / 512 GB NVMe'], ['Battery', '52 Wh']],
-        description: 'Work laptop bought outright when I left the company. Wiped and reset. Charger and original box included.' }),
+        description: 'My old work laptop, bought it out when I left the company. Fully reset, no company login or MDM on it. Charger and box included.' }),
       L({ id: 'l_aw', sellerId: 'u_karthik', category: 'monitor', img: 'assets/img/monitor.jpg',
         title: 'Alienware AW2721D, 27" QHD 240 Hz', brand: 'Dell Alienware', price: 34500, newPrice: 79990,
         condition: 'excellent', ageMonths: 29, warranty: '7 months manufacturer warranty', city: 'Bengaluru',
         serial: 'CN-0J7K2-AW27-1D4', createdAt: now - 4 * D,
         specs: [['Panel', '27" Nano IPS, 2560 × 1440'], ['Refresh', '240 Hz, G-Sync Ultimate'], ['Inputs', 'DisplayPort 1.4, 2× HDMI 2.0'], ['Stand', 'Height, tilt, swivel, pivot']],
-        description: 'Zero dead pixels when I last checked. Selling the monitor only, the rest of the desk in the photo is not included.' }),
+        description: 'No dead pixels that I can see. Selling only the monitor, nothing else in the photo is included.' }),
       L({ id: 'l_build', sellerId: 'u_karthik', category: 'desktop', img: 'assets/img/build.jpg',
         title: 'Custom build: Ryzen 7 5800X3D, RTX 3080 12 GB, 32 GB', brand: 'Custom', price: 135000, newPrice: 245000,
         condition: 'excellent', ageMonths: 22, warranty: 'Component warranties vary; listed in the report', city: 'Bengaluru', handover: 'onsite',
         serial: 'BUILD-KI-0611', createdAt: now - 2 * D,
         specs: [['Processor', 'AMD Ryzen 7 5800X3D'], ['Graphics', 'RTX 3080 12 GB'], ['Memory / storage', '32 GB DDR4 3600 / 2 TB NVMe'], ['Case and cooling', 'Lian Li O11 Dynamic, 360 mm AIO, 9 fans']],
-        description: 'Built in early 2025 and looked after. Every component invoice is available. Too heavy to post safely, so our agent verifies it at my place and Parakh handles crated delivery.' }),
+        description: 'Built in Jan 2025, used for gaming and some Blender work. I have bills for every part. It is too heavy to courier safely, so I chose on-site inspection at my place in Indiranagar.' }),
       L({ id: 'l_mbp', sellerId: 'u_sana', category: 'laptop', img: 'assets/img/macbook.jpg',
         title: 'MacBook Pro 13", M1, 16 GB, 512 GB, silver', brand: 'Apple', price: 62000, newPrice: 142900,
         condition: 'excellent', ageMonths: 38, warranty: 'Out of warranty', city: 'Mumbai', status: 'reserved',
         serial: 'C02FX1Q7Q05D', createdAt: now - 12 * D,
         specs: [['Chip', 'Apple M1'], ['Memory / storage', '16 GB / 512 GB'], ['Battery', '91% health, 214 cycles'], ['Includes', '61 W charger, box']],
-        description: 'Light office use. Activation Lock removed and macOS reinstalled.' }),
+        description: 'Office laptop, light use. Activation Lock is off and macOS has been reinstalled. Battery health 91%.' }),
       L({ id: 'l_g305', sellerId: 'u_rhea', category: 'mouse', img: 'assets/img/mouse-white.jpg',
         title: 'Logitech G Pro X Superlight, white', brand: 'Logitech', price: 6200, newPrice: 12995,
         condition: 'good', ageMonths: 27, warranty: 'Out of warranty', city: 'Bengaluru', status: 'pending',
         serial: '2209LZ51A3B7', createdAt: now - 3 * H,
         specs: [['Weight', '63 g'], ['Sensor', 'HERO 25K'], ['Battery', 'Up to 70 hours'], ['Includes', 'Receiver, cable, box']],
-        description: 'Some yellowing on the left side from sunlight. Clicks are crisp, no double-clicking.' }),
+        description: 'Left side has gone slightly yellow from sunlight. Clicks are fine, no double clicking.' }),
       L({ id: 'l_aio', sellerId: 'u_rhea', category: 'component', img: 'assets/img/aio.jpg',
         title: 'Corsair H100i RGB Platinum SE, 240 mm', brand: 'Corsair', price: 6500, newPrice: 14500,
         condition: 'good', ageMonths: 40, warranty: 'Out of warranty', city: 'Bengaluru', status: 'sold',
         serial: 'CW-9060042-2041', createdAt: now - 30 * D,
         specs: [['Radiator', '240 mm'], ['Sockets', 'AM4, AM5, LGA 1700 (bracket included)']],
-        description: 'Pulled from a working build.' })
+        description: 'Pulled from a working build. Pump is quiet.' })
     ];
 
     const addrArjun = users[0].address, addrMeera = users[1].address;
@@ -255,7 +255,7 @@
         timeline: [{ status: 'paid', at: now }] };
       if (l.mode === 'hub' && l.report) {            // already inspected and held at the hub
         o.report = l.report; o.fromStock = true;
-        o.timeline.push({ status: 'verified', at: now, note: 'Already inspected and held in our vault.' });
+        o.timeline.push({ status: 'verified', at: now, note: 'Already inspected and sealed at our hub.' });
         o.status = 'verified';
       }
       l.status = 'reserved'; me.address = address;

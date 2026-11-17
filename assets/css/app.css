@@ -4,8 +4,8 @@
 :root {
   --ink: #101214;
   --ink-2: #2e3338;
-  --muted: #6a7077;
-  --faint: #9aa0a6;
+  --muted: #585d63;
+  --faint: #6b7076;
   --line: #e3e4e0;
   --line-2: #d2d4cf;
   --bg: #f7f7f4;
@@ -18,8 +18,9 @@
   --red: #a8271e;
   --red-bg: #f8e6e3;
   --night: #0b0c0f;
-  --sans: 'Geist', 'Segoe UI Variable Text', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  --mono: 'Geist Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --display: 'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  --sans: 'Public Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
   --r: 8px;
   --r-lg: 12px;
 }
@@ -561,3 +562,50 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (max-width: 860px) {
   .demo { left: calc(8px + env(safe-area-inset-left, 0px)); bottom: calc(8px + env(safe-area-inset-bottom, 0px)); }
 }
+
+/* ---------- refinement pass: type, labels, contrast, browser surfaces ---------- */
+h1, h2, h3, .logo, .price, .buy-price, .stats strong, .calc .sum-total dd, .step-n { font-family: var(--display); }
+h1, .page-head h1, .hero h1, .sellhero h1 { letter-spacing: -0.025em; }
+h2, .split-copy h2, .fees-row h2 { letter-spacing: -0.02em; }
+
+/* labels: sentence case in the body face; mono is kept for serials, codes and IDs */
+.eyebrow { font: 500 12.5px/1.3 var(--sans); letter-spacing: 0; text-transform: none; color: var(--muted); }
+.card-meta { font: 400 12.5px/1.2 var(--sans); text-transform: none; letter-spacing: 0; }
+.f-h, .ftr h2 { font: 600 13px/1.3 var(--sans); letter-spacing: 0; text-transform: none; color: var(--ink); margin-bottom: 12px; }
+.checkcols h3 { font: 600 14px/1.35 var(--sans); letter-spacing: 0; text-transform: none; color: var(--ink); margin-bottom: 14px; }
+.calc-h { font: 600 15px/1.3 var(--sans); letter-spacing: 0; margin-bottom: 18px; }
+.demobox .calc-h { margin-bottom: 0; }
+.fees-note { color: rgba(255,255,255,.72); margin-top: 14px; max-width: 26em; }
+
+/* real sequences keep a number, set in the display face rather than mono */
+.step-n { font-size: 15px; font-weight: 600; color: var(--muted); margin-bottom: 18px; }
+.steps li { display: block; }
+.steps h2, .steps h3 { font-size: 16.5px; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 8px; }
+.longsteps h2 { font-size: 18px; letter-spacing: -0.012em; margin-bottom: 6px; }
+.longsteps .step-n { margin: 1px 0 0; }
+
+/* hero facts: icons instead of fake numbering */
+.hero-facts li { display: flex; align-items: center; gap: 10px; }
+.hero-facts .ic { color: #8fc9ad; }
+
+/* plain placeholder instead of decorative stripes */
+.noimg { background: var(--tint); display: grid; place-items: center; align-content: center; gap: 6px; color: var(--muted); }
+.noimg span { font: 500 12.5px/1 var(--sans); text-transform: none; letter-spacing: 0; background: none; padding: 0; color: var(--muted); }
+
+/* readable measure */
+.block > p, details p, .lede, .longsteps p { max-width: 35em; }
+.page-head p { max-width: 36em; }
+.block > p + p { margin-top: -4px; }
+
+/* prototype bar label legible */
+.demo-l { font: 600 12px/1 var(--sans); letter-spacing: 0.02em; text-transform: none; }
+
+/* browser surfaces themed from the palette */
+::selection { background: #cfe5d9; color: var(--ink); }
+.hero ::selection, .sec-dark ::selection, .actbox ::selection { background: #2f6b52; color: #fff; }
+input, textarea { caret-color: var(--green); }
+html { scrollbar-color: #c4c6c0 var(--bg); accent-color: var(--ink); }
+.ulink, .link:hover { text-underline-offset: 0.22em; }
+
+.block > .spec { max-width: 46em; }
+.block > .spec td { padding-right: 8px; }

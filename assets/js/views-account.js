@@ -40,7 +40,7 @@
           </section>
           <section class="panel">
             <h2>How should we check it?</h2>
-            ${vault ? `<div class="note">${icon('check', 16)}<span>This item has already had the full bench test and is sealed in our vault. Its report is on the listing.</span></div>`
+            ${vault ? `<div class="note">${icon('check', 16)}<span>This item has already had the full bench test and is sealed at our hub. Its report is on the listing.</span></div>`
             : `<div class="paylist">
               <label class="payopt"><input type="radio" name="tier" value="basic" data-tier="0" checked><span><strong>${PK.TIERS.basic.label}<b class="opt-price">Included</b></strong><em>${PK.TIERS.basic.note}</em></span></label>
               <label class="payopt"><input type="radio" name="tier" value="full" data-tier="${bench}"><span><strong>${PK.TIERS.full.label}<b class="opt-price">+${inr(bench)}</b></strong><em>${PK.TIERS.full.note}</em></span></label>
@@ -150,8 +150,7 @@
     if (me.kyc.status === 'pending') return `<div class="wrap page narrow"><div class="empty"><h2>Your details are with our team.</h2><p>We will email you as soon as you are verified. <a class="ulink" href="#/selling">Back to selling</a></p><p class="muted small">Prototype tip: switch to the bench agent (bottom left) to approve this.</p></div></div>`;
     return `<div class="wrap page narrow">
       <div class="page-head">
-        <div class="eyebrow">Seller verification</div>
-        <h1>Tell us who you are.</h1>
+        <h1>Verify your identity</h1>
         <p>We verify every seller so that buyers know a real, traceable person stands behind each listing. Your details are never shown to buyers.</p>
       </div>
       <form class="panel" data-form="kyc" novalidate>
@@ -182,7 +181,7 @@
     PK._photo = '';
     return `<div class="wrap page">
       <nav class="crumbs"><a href="#/selling">Selling</a></nav>
-      <div class="page-head"><h1>List an item</h1><p>Describe it as it is. An accurate listing is the one that passes inspection.</p></div>
+      <div class="page-head"><h1>List an item</h1><p>Mention any scratches, faults or missing parts. The technician checks the item against this description.</p></div>
       <form class="checkout" data-form="listing" novalidate>
         <div>
           <section class="panel">

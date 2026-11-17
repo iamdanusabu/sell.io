@@ -47,7 +47,7 @@
       case 'at_hub': return o.handover === 'onsite'
         ? box('Our agent is with the item now.', 'They are working through the checklist at the seller\'s address. You will get the report as soon as they sign it off.')
         : box('On the bench now.', 'Our technician is working through the checklist. Most inspections finish within one working day.');
-      case 'verified': return box('It passed.', 'The full report is below. We are packing and sealing it for dispatch.');
+      case 'verified': return box('Passed inspection.', 'The full report is below. We are packing and sealing it for dispatch.');
       case 'shipped': return box('On its way to you.', `${esc(o.tracking.courier)}, AWB <span class="mono">${esc(o.tracking.awb)}</span>. Check that the seal on the parcel reads <span class="mono">${esc(o.report.seal)}</span> and film the unboxing.`,
         `<button class="btn btn-block" data-act="mark-delivered" data-id="${o.id}">I have received the parcel</button>`);
       case 'delivered': return box('Check it over.', `${hoursLeft(o)} Compare the item with its report. The seller is paid only when you confirm, or when the window closes.`,
@@ -61,7 +61,7 @@
              <button class="btn btn-quiet btn-block">Freeze payout and open a claim</button>
            </form>
          </details>`);
-      case 'completed': return box('Deal complete.', 'Payment has been released to the seller. Enjoy the hardware.');
+      case 'completed': return box('Deal complete.', 'Payment has been released to the seller.');
       case 'disputed': return box('We are reviewing your claim.', 'The seller\'s payout is frozen. A member of our team will contact you within one working day and may ask for your unboxing video.');
       case 'refunded': return box('Refunded.', `${inr(o.total)} has been returned to your original payment method (${esc(o.payMethod)}).`);
       case 'cancelled': return box('Order cancelled.', `${inr(o.total)} has been returned to your original payment method.`);
@@ -129,7 +129,7 @@
     return `<form class="panel inspect" data-form="inspect" novalidate>
       <input type="hidden" name="id" value="${o.id}">
       <div class="inspect-head">
-        <div><div class="eyebrow">${esc((PK.TIERS[o.tier] || PK.TIERS.full).label)}, chosen by the buyer</div><h2>${esc(l.title)}</h2></div>
+        <div><h2>${esc(l.title)}</h2><p class="muted small">${esc((PK.TIERS[o.tier] || PK.TIERS.full).label)}, chosen by the buyer</p></div>
         <button type="button" class="link" data-act="all-pass">Mark all as pass</button>
       </div>
       <div class="claimed">
@@ -149,7 +149,7 @@
       <div class="fgrid">
         <label>Serial read from the unit<input name="serial" required class="mono" placeholder="Type it, do not paste from the listing"></label>
         <label>Grade you would give it<select name="grade">${Object.keys(PK.CONDITIONS).map((k) => `<option value="${k}" ${k === l.condition ? 'selected' : ''}>${PK.CONDITIONS[k].label}</option>`).join('')}</select></label>
-        <label class="span2">Notes for the buyer<textarea name="notes" rows="3" required placeholder="Temperatures, battery health, marks you found. Write what you would want to know."></textarea></label>
+        <label class="span2">Notes for the buyer<textarea name="notes" rows="3" required placeholder="Temperatures under load, battery health, any marks or wear you found"></textarea></label>
       </div>
       <div class="form-err" hidden></div>
       <div class="inspect-actions">

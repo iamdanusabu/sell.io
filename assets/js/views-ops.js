@@ -33,7 +33,7 @@
     const oHead = ['Order', 'Item', 'In escrow', 'Status', ''];
 
     return `<div class="wrap page">
-      <div class="page-head"><div class="eyebrow">Internal</div><h1>Bench console</h1><p>Signed in as ${esc(db.me().name)}, Bengaluru hub.</p></div>
+      <div class="page-head"><h1>Bench console</h1><p>Signed in as ${esc(db.me().name)}, Bengaluru hub.</p></div>
       <div class="stats">
         <div><span>Orders needing action</span><strong>${queue.length}</strong></div>
         <div><span>Listings to review</span><strong>${pendingListings.length}</strong></div>

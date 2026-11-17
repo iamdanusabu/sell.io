@@ -39,20 +39,20 @@
   };
 
   PK.verifiedTag = (l) => l.mode === 'hub'
-    ? `<span class="tag tag-green">${icon('check', 13)} Inspected, in our vault</span>`
+    ? `<span class="tag tag-green">${icon('check', 13)} Inspected, at our hub</span>`
     : (l.handover === 'onsite'
       ? `<span class="tag">On-site inspection</span>`
       : `<span class="tag">Inspected on order</span>`);
 
   PK.thumb = (l, cls) => l.img
     ? `<img class="${cls || ''}" src="${esc(l.img)}" alt="${esc(l.title)}" loading="lazy">`
-    : `<div class="noimg ${cls || ''}"><span>${esc((PK.CATEGORIES[l.category] || {}).label || 'Item')}</span></div>`;
+    : `<div class="noimg ${cls || ''}">${icon('camera', 20)}<span>No photo yet</span></div>`;
 
   PK.listingCard = (l) => {
     const seller = db.user(l.sellerId);
     const off = l.newPrice > l.price ? Math.round((1 - l.price / l.newPrice) * 100) : 0;
     return `<a class="card" href="#/item/${l.id}">
-      <div class="card-img">${PK.thumb(l)}${l.mode === 'hub' ? `<span class="card-flag">${icon('check', 12)} In our vault</span>` : ''}</div>
+      <div class="card-img">${PK.thumb(l)}${l.mode === 'hub' ? `<span class="card-flag">${icon('check', 12)} Inspected</span>` : ''}</div>
       <div class="card-body">
         <div class="card-meta"><span>${esc(PK.CATEGORIES[l.category].label)}</span><span>${esc(PK.CONDITIONS[l.condition].label)}</span></div>
         <h3>${esc(l.title)}</h3>
@@ -131,11 +131,11 @@
     <div class="wrap ftr-in">
       <div class="ftr-brand">
         <a class="logo" href="#/"><span class="logo-mark"></span>Parakh</a>
-        <p>Parakh (परख) is the Hindi word for assaying: testing something to prove what it is worth.</p>
+        <p>परख (parakh): to examine something and judge its worth.</p>
       </div>
-      <div><h4>Marketplace</h4><a href="#/browse">Browse listings</a><a href="#/browse?vault=1">In our vault</a><a href="#/sell">Sell hardware</a></div>
-      <div><h4>Protection</h4><a href="#/protection">How a deal works</a><a href="#/protection#checks">What we check</a><a href="#/protection#fees">Fees</a></div>
-      <div><h4>Account</h4><a href="#/orders">Your orders</a><a href="#/selling">Seller dashboard</a><a href="#/login">Sign in</a></div>
+      <div><h2>Marketplace</h2><a href="#/browse">Browse listings</a><a href="#/browse?vault=1">Already inspected</a><a href="#/sell">Sell hardware</a></div>
+      <div><h2>Protection</h2><a href="#/protection">How a deal works</a><a href="#/protection#checks">What we check</a><a href="#/protection#fees">Fees</a></div>
+      <div><h2>Account</h2><a href="#/orders">Your orders</a><a href="#/selling">Seller dashboard</a><a href="#/login">Sign in</a></div>
     </div>
     <div class="wrap ftr-note">Prototype build. Listings, people and payments on this site are sample data; no money moves.</div>
   </footer>`;
