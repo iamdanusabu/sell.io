@@ -127,6 +127,27 @@
     return `<span class="who"><span class="avatar">${esc(PK.initials(me.name))}</span><button class="link" data-act="signout">Sign out</button></span>`;
   }
 
+  /* Demo partners. Wordmarks are drawn inline (monochrome, brand colour on hover); no partnership is implied. */
+  const mk = {
+    razorpay: '<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M9.6 6.2 22 2l-7.4 20H9.7l3.1-8.6-6 2.1 2.8-9.3Z" opacity=".55"/><path fill="currentColor" d="M5.2 22 9.1 9.4 14 7.7 9.9 22Z"/></svg>',
+    cashfree: '<svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M15.5 8.6a4.4 4.4 0 1 0 0 6.8" fill="none" stroke="var(--pmk-bg,#fff)" stroke-width="2.2" stroke-linecap="round"/></svg>',
+    delhivery: '<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M3 4h7.5c5 0 8.5 3.4 8.5 8s-3.5 8-8.5 8H3l4-8Z"/><path fill="var(--pmk-bg,#fff)" d="m8.6 8.3 4.6 3.7-4.6 3.7 1.6-3.7Z"/></svg>',
+    bluedart: '<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M2 13.5 22 5l-6.5 14-2.6-4.3Z"/><path fill="var(--pmk-bg,#fff)" d="m12.9 14.7 3.4-5.6" stroke="var(--pmk-bg,#fff)" stroke-width="1.4"/></svg>',
+    shiprocket: '<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20.5 3.5c-5 .2-9 2.8-11.4 7.2L6 10.4 3 13.6l4.4.8 2.2 2.2.8 4.4 3.2-3-.3-3.1c4.4-2.4 7-6.4 7.2-11.4Z"/><circle cx="15.3" cy="8.7" r="1.7" fill="var(--pmk-bg,#fff)"/></svg>',
+    digit: '<svg viewBox="0 0 24 24" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/><path d="M8 7h3.2a5 5 0 0 1 0 10H8Z" fill="none" stroke="var(--pmk-bg,#fff)" stroke-width="2.2"/></svg>',
+    hyperverge: '<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2 21 7v10l-9 5-9-5V7Z"/><path d="m8 12.3 2.7 2.7L16 9.6" fill="none" stroke="var(--pmk-bg,#fff)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+  };
+  PK.PARTNERS = [
+    { id: 'razorpay', name: 'Razorpay', role: 'Escrow and payments', color: '#3395ff', cls: 'pw-rzp' },
+    { id: 'cashfree', name: 'Cashfree', role: 'Seller payouts', color: '#6933d3', cls: 'pw-cf' },
+    { id: 'delhivery', name: 'DELHIVERY', role: 'Surface shipping', color: '#e3242b', cls: 'pw-dl' },
+    { id: 'bluedart', name: 'Blue Dart', role: 'Express air', color: '#1d3c8f', cls: 'pw-bd' },
+    { id: 'shiprocket', name: 'shiprocket', role: 'Pickups and tracking', color: '#7b3fe4', cls: 'pw-sr' },
+    { id: 'digit', name: 'digit', role: 'Transit insurance', color: '#f5a100', cls: 'pw-dg' },
+    { id: 'hyperverge', name: 'HyperVerge', role: 'Seller KYC', color: '#1a73e8', cls: 'pw-hv' }
+  ];
+  PK.partnerMark = (p) => `<span class="pw ${p.cls}" style="--pc:${p.color}" aria-label="${esc(p.name)}">${mk[p.id]}<span>${esc(p.name)}</span></span>`;
+
   PK.footer = () => `<footer class="ftr">
     <div class="wrap ftr-in">
       <div class="ftr-brand">
@@ -137,7 +158,8 @@
       <div><h2>Protection</h2><a href="#/protection">How a deal works</a><a href="#/protection#checks">What we check</a><a href="#/protection#fees">Fees</a></div>
       <div><h2>Account</h2><a href="#/orders">Your orders</a><a href="#/selling">Seller dashboard</a><a href="#/login">Sign in</a></div>
     </div>
-    <div class="wrap ftr-note">Prototype build. Listings, people and payments on this site are sample data; no money moves.</div>
+    <div class="wrap ftr-partners"><span class="eyebrow">Partners</span>${PK.PARTNERS.map(PK.partnerMark).join('')}</div>
+    <div class="wrap ftr-note">Prototype build. Listings, people and payments on this site are sample data; no money moves. Partner names and logos are shown for demonstration only and do not imply an actual partnership.</div>
   </footer>`;
 
   /* Demo control so one person can walk the whole deal from all three sides. */

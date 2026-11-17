@@ -41,6 +41,16 @@
       </div>
     </section>
 
+    <section class="wrap partners" aria-labelledby="partners-h">
+      <div class="partners-head">
+        <h2 id="partners-h" class="eyebrow">In partnership with</h2>
+        <p>Your money, the parcel and the seller's identity are each handled by a specialist.</p>
+      </div>
+      <ul class="partners-grid">
+        ${PK.PARTNERS.map((p) => `<li>${PK.partnerMark(p)}<span class="partners-role">${esc(p.role)}</span></li>`).join('')}
+      </ul>
+    </section>
+
     <section class="wrap sec">
       <div class="sec-head">
         <h2>Recently listed</h2>
