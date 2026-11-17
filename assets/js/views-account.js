@@ -1,4 +1,4 @@
-/* Parakh prototype — signed-in pages: checkout, orders, seller dashboard, seller verification, new listing. */
+/* sell.io prototype — signed-in pages: checkout, orders, seller dashboard, seller verification, new listing. */
 (function () {
   const { esc, inr, icon, db } = PK;
   const F = PK.FEES;
@@ -229,7 +229,7 @@
           <label>Asking price<div class="inp-pre"><span>₹</span><input name="price" type="number" required min="${F.minPrice}" step="100" inputmode="numeric" data-calc="list"></div></label>
           <label>Price when new <span class="muted">(optional)</span><div class="inp-pre"><span>₹</span><input name="newPrice" type="number" min="0" step="100" inputmode="numeric"></div></label>
           <dl class="sum">
-            <div><dt>Parakh fee</dt><dd id="l-fee">–</dd></div>
+            <div><dt>sell.io fee</dt><dd id="l-fee">–</dd></div>
             <div><dt>On-site visit</dt><dd id="l-visit">None</dd></div>
             <div><dt>Buyer pays shipping</dt><dd id="l-ship">${inr(PK.shipFor('gpu'))}</dd></div>
             <div class="sum-total"><dt>You receive</dt><dd id="l-net">–</dd></div>

@@ -1,4 +1,4 @@
-/* Parakh prototype — public pages: home, browse, item, how it works, sell, sign in. */
+/* sell.io prototype — public pages: home, browse, item, how it works, sell, sign in. */
 (function () {
   const { esc, inr, icon, db } = PK;
   PK.views = PK.views || {};
@@ -23,7 +23,7 @@
       <div class="wrap hero-in">
         <div class="hero-copy">
           <h1>Used PC hardware, inspected by hand before it ships.</h1>
-          <p>Your payment waits in escrow while a Parakh technician checks the item against its listing. The seller is paid only after you have had it for 48 hours.</p>
+          <p>Your payment waits in escrow while a sell.io technician checks the item against its listing. The seller is paid only after you have had it for 48 hours.</p>
           <div class="hero-cta">
             <a class="btn btn-light btn-lg" href="#/browse">Browse listings ${icon('arrow', 16)}</a>
             <a class="btn btn-ghost-light btn-lg" href="#/sell">Sell your hardware</a>
@@ -186,7 +186,7 @@
     let buy;
     if (l.status === 'live' && mine) buy = `<div class="note">This is your listing. Buyers see this page.</div>`;
     else if (l.status === 'live' && me && me.role === 'ops') buy = `<div class="note">Bench accounts cannot buy.</div>`;
-    else if (l.status === 'live') buy = `<a class="btn btn-lg btn-block" href="#/checkout/${l.id}">Buy with Parakh protection</a>`;
+    else if (l.status === 'live') buy = `<a class="btn btn-lg btn-block" href="#/checkout/${l.id}">Buy with sell.io protection</a>`;
     else if (l.status === 'reserved') buy = `<button class="btn btn-lg btn-block" disabled>Reserved by a buyer</button>`;
     else if (l.status === 'sold') buy = `<button class="btn btn-lg btn-block" disabled>Sold</button>`;
     else buy = `<div class="note">Status: ${esc(l.status)}. Not visible to buyers.</div>`;
@@ -213,7 +213,7 @@
           ${l.mode === 'hub' && l.report ? `<section class="block"><h2>Inspection report</h2>${PK.reportCard(l.report, l, { maskSerial: true })}</section>` : `
           <section class="block">
             <h2>What we will check</h2>
-            <p class="muted">You choose the level at checkout. Either way, a Parakh technician handles the item before it ships and you receive the signed report.</p>
+            <p class="muted">You choose the level at checkout. Either way, a sell.io technician handles the item before it ships and you receive the signed report.</p>
             <div class="checkcols">
               <div><h3>Look-and-feel check, included</h3><ul class="checks">${li(PK.checklistFor(l.category, 'basic'))}</ul></div>
               <div><h3>Full bench test, +${inr(PK.benchFor(l.category))}</h3><ul class="checks">${li(PK.CHECKS[l.category] || PK.CHECKS.component)}</ul>
@@ -263,8 +263,8 @@
   /* ---------- how it works / protection ---------- */
   PK.views.protection = () => `<div class="wrap page narrow">
     <div class="page-head">
-      <h1>How Parakh works</h1>
-      <p>Buying used hardware from a stranger usually means trusting their photos and paying first. On Parakh the money waits in escrow, and the item is inspected before it ships.</p>
+      <h1>How sell.io works</h1>
+      <p>Buying used hardware from a stranger usually means trusting their photos and paying first. On sell.io the money waits in escrow, and the item is inspected before it ships.</p>
     </div>
 
     <ol class="longsteps">${stepList('longsteps', 'h2')}</ol>
@@ -298,7 +298,7 @@
 
     <section class="block">
       <h2>Questions people ask</h2>
-      <details><summary>Where is my money while I wait?</summary><p>With a licensed payment partner, in an account that only pays out on our instruction: to the seller once the deal completes, or back to you if it does not. It never sits in Parakh's own bank account.</p></details>
+      <details><summary>Where is my money while I wait?</summary><p>With a licensed payment partner, in an account that only pays out on our instruction: to the seller once the deal completes, or back to you if it does not. It never sits in sell.io's own bank account.</p></details>
       <details><summary>Can I talk to the seller directly?</summary><p>No. Contact details stay private on both sides, and the inspection report is the record of what was sold. If you have a question about an item, ask us and we will check it for you.</p></details>
       <details><summary>What if the item dies a month later?</summary><p>Our report describes the item on the day we tested it. After the inspection window closes, any remaining manufacturer warranty is your cover, and we note its status in the report.</p></details>
       <details><summary>Why is there a minimum price?</summary><p>Every item takes a technician's time to inspect. Below ${inr(F.minPrice)}, the inspection would cost more than it protects.</p></details>
@@ -314,7 +314,7 @@
     return `<div class="wrap page">
       <div class="sellhero">
         <div>
-          <h1>Sell your hardware on Parakh</h1>
+          <h1>Sell your hardware on sell.io</h1>
           <p>The buyer pays into escrow before you send anything, so you never chase a payment or meet a stranger to hand it over. You are paid 48 hours after the item is delivered.</p>
           <a class="btn btn-lg" href="${next}">${!me ? 'Create a seller account' : me.kyc.status === 'verified' ? 'List an item' : 'Verify your identity'} ${icon('arrow', 16)}</a>
         </div>
@@ -322,7 +322,7 @@
           <h2 class="calc-h">Work out your payout</h2>
           <label>Sale price<div class="inp-pre"><span>₹</span><input type="number" inputmode="numeric" value="${ex}" min="${F.minPrice}" step="500" data-calc="sell"></div></label>
           <dl class="sum">
-            <div><dt>Parakh fee (${F.commissionRate * 100}%, min ${inr(F.commissionMin)})</dt><dd id="calc-fee">− ${inr(fee)}</dd></div>
+            <div><dt>sell.io fee (${F.commissionRate * 100}%, min ${inr(F.commissionMin)})</dt><dd id="calc-fee">− ${inr(fee)}</dd></div>
             <div class="sum-total"><dt>Paid to your bank</dt><dd id="calc-net">${inr(ex - fee)}</dd></div>
           </dl>
           <p class="muted small">The buyer pays shipping. You pay nothing unless the item sells. Would rather not post it? Our agent can inspect and collect it from you for ${inr(F.visitFee)}.</p>

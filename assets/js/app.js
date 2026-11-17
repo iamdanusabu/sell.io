@@ -1,4 +1,4 @@
-/* Parakh prototype — router, event wiring and form handlers. */
+/* sell.io prototype — router, event wiring and form handlers. */
 (function () {
   const { db, act, inr } = PK;
   const app = document.getElementById('app');
@@ -43,7 +43,7 @@
     else if (name === 'selling' && me.role === 'ops') body = PK.notFound('Bench accounts do not sell.');
     else body = PK.views[name](r);
     app.innerHTML = PK.header(r) + `<main>${body}</main>` + PK.footer() + PK.demoBar();
-    document.title = 'Parakh — ' + ({ home: 'Verified hardware exchange', browse: 'Browse', protection: 'How it works', sell: 'Sell', login: 'Sign in', ops: 'Bench console' }[name] || 'Verified hardware exchange');
+    document.title = 'sell.io — ' + ({ home: 'Verified hardware exchange', browse: 'Browse', protection: 'How it works', sell: 'Sell', login: 'Sign in', ops: 'Bench console' }[name] || 'Verified hardware exchange');
     if (PK.mounts[name]) PK.mounts[name](r);
     if (r.anchor) { const el = document.getElementById(r.anchor); if (el) el.scrollIntoView(); }
     else if (r.path !== lastPath) window.scrollTo(0, 0);

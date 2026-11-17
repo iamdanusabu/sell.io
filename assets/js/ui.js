@@ -1,4 +1,4 @@
-/* Parakh prototype — formatting helpers and shared components. */
+/* sell.io prototype — formatting helpers and shared components. */
 (function () {
   const db = PK.db;
 
@@ -113,7 +113,7 @@
     else right = `<a href="#/orders" class="link">Orders</a><a href="#/selling" class="link">Selling</a>${who(me)}`;
     return `<header class="hdr ${dark ? 'hdr-dark' : ''}">
       <div class="wrap hdr-in">
-        <a class="logo" href="#/" aria-label="Parakh home"><span class="logo-mark"></span>Parakh</a>
+        <a class="logo" href="#/" aria-label="sell.io home"><span class="logo-mark"></span>sell.io</a>
         <nav class="nav">
           <a href="#/browse" ${at('browse')}>Browse</a>
           <a href="#/protection" ${at('protection')}>How it works</a>
@@ -127,7 +127,7 @@
     return `<span class="who"><span class="avatar">${esc(PK.initials(me.name))}</span><button class="link" data-act="signout">Sign out</button></span>`;
   }
 
-  /* Demo partners: official logos from Wikimedia Commons, shown for the prototype only; no partnership is implied. */
+  /* Demo partners: official logos (Wikimedia Commons and company sites), shown for the prototype only; no partnership is implied. */
   PK.PARTNERS = [
     { id: 'razorpay', name: 'Razorpay', role: 'Escrow and payments', img: 'razorpay.svg' },
     { id: 'phonepe', name: 'PhonePe', role: 'UPI payments', img: 'phonepe.svg' },
@@ -135,15 +135,17 @@
     { id: 'delhivery', name: 'Delhivery', role: 'Surface shipping', img: 'delhivery.png' },
     { id: 'bluedart', name: 'Blue Dart', role: 'Express air', img: 'bluedart.svg' },
     { id: 'shiprocket', name: 'Shiprocket', role: 'Pickups and tracking', img: 'shiprocket.png' },
-    { id: 'dhl', name: 'DHL', role: 'Express courier', img: 'dhl.svg' }
+    { id: 'dhl', name: 'DHL', role: 'Express courier', img: 'dhl.svg' },
+    { id: 'digit', name: 'Digit Insurance', role: 'Transit insurance', img: 'digit.svg' },
+    { id: 'hyperverge', name: 'HyperVerge', role: 'Seller KYC', img: 'hyperverge.webp' }
   ];
   PK.partnerMark = (p) => `<img class="pw pw-${p.id}" src="assets/img/partners/${p.img}" alt="${esc(p.name)}" loading="lazy" decoding="async">`;
 
   PK.footer = () => `<footer class="ftr">
     <div class="wrap ftr-in">
       <div class="ftr-brand">
-        <a class="logo" href="#/"><span class="logo-mark"></span>Parakh</a>
-        <p>परख (parakh): to examine something and judge its worth.</p>
+        <a class="logo" href="#/"><span class="logo-mark"></span>sell.io</a>
+        <p>Used PC hardware, inspected by hand before it ships.</p>
       </div>
       <div><h2>Marketplace</h2><a href="#/browse">Browse listings</a><a href="#/browse?vault=1">Already inspected</a><a href="#/sell">Sell hardware</a></div>
       <div><h2>Protection</h2><a href="#/protection">How a deal works</a><a href="#/protection#checks">What we check</a><a href="#/protection#fees">Fees</a></div>

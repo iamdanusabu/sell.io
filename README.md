@@ -1,7 +1,7 @@
-# Parakh
+# sell.io
 
 A clickable prototype of a verified marketplace for pre-owned computer hardware in India.
-Buyers pay into escrow, the item is physically inspected by a Parakh agent, and the seller
+Buyers pay into escrow, the item is physically inspected by a sell.io agent, and the seller
 is paid only after the buyer has had 48 hours with it.
 
 Everything runs in the browser. There is no backend: sample data is stored in each visitor's

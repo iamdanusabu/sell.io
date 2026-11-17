@@ -1,7 +1,7 @@
-/* Parakh prototype — state, persistence and every business action.
+/* sell.io prototype — state, persistence and every business action.
    State lives in localStorage so the whole flow works without a backend. */
 (function () {
-  const KEY = 'parakh.proto.v5';
+  const KEY = 'sellio.proto.v5';
   const H = 36e5, D = 24 * H;
 
   const rnd = (n) => Math.floor(Math.random() * n);
@@ -36,7 +36,7 @@
         kyc: { status: 'verified', pan: 'XXXXX6650D', bank: 'Kotak Mahindra Bank', acct: '3051', at: now - 118 * D } },
       { id: 'u_tanvi', name: 'Tanvi Rao', email: 'tanvi@example.com', city: 'Hyderabad', role: 'member', joined: now - 2 * D, deals: 0,
         kyc: { status: 'pending', pan: 'XXXXX2390R', bank: 'State Bank of India', acct: '8814', at: now - 5 * H } },
-      { id: 'u_ops', name: "Nikhil D'Souza", email: 'bench@parakh.example', city: 'Bengaluru', role: 'ops', joined: now - 500 * D, deals: 0, kyc: { status: 'none' } }
+      { id: 'u_ops', name: "Nikhil D'Souza", email: 'bench@sellio.example', city: 'Bengaluru', role: 'ops', joined: now - 500 * D, deals: 0, kyc: { status: 'none' } }
     ];
 
     const L = (o) => Object.assign({ status: 'live', mode: 'order', handover: 'ship', invoice: true, box: true, createdAt: now - 3 * D }, o);
@@ -46,7 +46,7 @@
         condition: 'excellent', ageMonths: 58, warranty: 'Out of warranty', city: 'Bengaluru', mode: 'hub',
         serial: '0324819062255', createdAt: now - 6 * D,
         specs: [['Memory', '11 GB GDDR6'], ['Outputs', '3× DisplayPort 1.4, HDMI 2.0b, USB-C'], ['Power', '2× 8-pin, 650 W PSU recommended'], ['Length', '267 mm, dual slot']],
-        description: 'Bought on the NVIDIA store in Sept 2019. Gaming only, never mined on. Got it repasted with new thermal pads when I dropped it at the Parakh hub. Original box and bill.',
+        description: 'Bought on the NVIDIA store in Sept 2019. Gaming only, never mined on. Got it repasted with new thermal pads when I dropped it at the sell.io hub. Original box and bill.',
         report: seedReport('gpu', { id: 'VR-20417', at: now - 5 * D, grade: 'excellent', seal: 'S-7KQ2MD', serial: '0324819062255',
           notes: 'Peak 78°C after 30 minutes of 3DMark Time Spy stress, 99.4% frame stability. Fans spin true, no bearing noise. Light hairline marks on the backplate, visible only under direct light.' }) }),
       L({ id: 'l_ryzen', sellerId: 'u_rhea', category: 'cpu', img: 'assets/img/ryzen.jpg',

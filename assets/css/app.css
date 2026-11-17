@@ -1,4 +1,4 @@
-/* Parakh prototype — stylesheet.
+/* sell.io prototype — stylesheet.
    Principles: hairlines over shadows, one accent (verification green), mono for anything you would read off a label. */
 
 :root {
@@ -615,6 +615,8 @@ html { scrollbar-color: #c4c6c0 var(--bg); accent-color: var(--ink); }
 .pw-delhivery { height: 22px; }
 .pw-dhl { height: 22px; }
 .pw-shiprocket { height: 32px; }
+.pw-digit { height: 32px; }
+.pw-hyperverge { height: 18px; }
 .partners { padding-top: 56px; padding-bottom: 8px; display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: start; }
 .partners-head p { color: var(--muted); font-size: 14px; margin-top: 12px; max-width: 22em; }
 .partners-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }

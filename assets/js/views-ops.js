@@ -1,4 +1,4 @@
-/* Parakh prototype — bench console for verification agents. */
+/* sell.io prototype — bench console for verification agents. */
 (function () {
   const { esc, inr, icon, db } = PK;
 

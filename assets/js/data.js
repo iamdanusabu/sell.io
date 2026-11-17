@@ -1,8 +1,8 @@
-/* Parakh prototype — static reference data and seed content.
+/* sell.io prototype — static reference data and seed content.
    Everything here is sample data for the demo. */
 window.PK = window.PK || {};
 
-PK.BRAND = 'Parakh';
+PK.BRAND = 'sell.io';
 PK.HUB_CITY = 'Bengaluru';
 
 PK.FEES = {
@@ -155,7 +155,7 @@ PK.STATUS = {
 
 PK.STEPS = [
   { key: 'paid',       title: 'Payment held in escrow' },
-  { key: 'in_transit', title: 'Seller hands the item to Parakh', onsite: 'Inspection visit booked with the seller' },
+  { key: 'in_transit', title: 'Seller hands the item to sell.io', onsite: 'Inspection visit booked with the seller' },
   { key: 'at_hub',     title: 'Received at the Bengaluru hub',   onsite: 'Agent on site with the item' },
   { key: 'verified',   title: 'Inspected; report issued',        onsite: 'Inspected on site; report issued' },
   { key: 'shipped',    title: 'Sealed and shipped, insured' },
